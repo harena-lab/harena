@@ -32,7 +32,8 @@ harena_module_up()
 	echo "------------------------------------Up $1-------------------------------------"
 
 	echo "Starting docker-compose"
-	sudo  docker-compose --file $root_folder/modules/$1/docker-compose.yml --project-name "harena" up   -d  
+	sudo docker-compose pull
+	sudo docker-compose --file $root_folder/modules/$1/docker-compose.yml --project-name "harena" up   -d  
 }
 
 
