@@ -1,5 +1,6 @@
 #!/bin/bash
 sudo apt-get update
+sudo apt-get upgrade -y
 sudo apt-get install -y wget docker-compose git 
 
 root_folder=$(pwd)
