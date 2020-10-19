@@ -13,7 +13,7 @@ harena_module_link()
 	mkdir $root_folder/modules/$1 -p 
 
 	echo "Retrieving docker-compose file"
-	wget  -P $root_folder/modules/$1 https://raw.githubusercontent.com/datasci4health/$1/$2/docker-compose.yml --quiet --no-cache  
+	wget  -P $root_folder/modules/$1 https://raw.githubusercontent.com/harena-lab/$1/$2/docker-compose.yml --quiet --no-cache  
 
 }
 
@@ -94,7 +94,7 @@ sleep 10
 
 #                  module           service          command
 harena_module_exec  "harena-manager" "harena-manager" "adonis migration:run --force"
-harena_module_exec  "harena-manager" "harena-manager" "adonis seed          --force"
+harena_module_exec  "harena-manager" "harena-manager" "adonis seed --files InitialSeeder.js         --force"
 
 echo "Done. Listing all containers:"
 sudo docker ps -a
