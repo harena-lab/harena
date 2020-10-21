@@ -84,8 +84,8 @@ harena_module_start()
 
 
 #                    module           branch/tag
-harena_module_start "harena-space"   "master"  
-harena_module_start "harena-manager" "master"
+harena_module_start "harena-space"   "development"  
+harena_module_start "harena-manager" "development"
 harena_module_start "harena-logger"  "master"
 
 
@@ -94,7 +94,7 @@ sleep 10
 
 #                  module           service          command
 harena_module_exec  "harena-manager" "harena-manager" "adonis migration:run --force"
-harena_module_exec  "harena-manager" "harena-manager" "adonis seed --files InitialSeeder.js         --force"
+harena_module_exec  "harena-manager" "harena-manager" "adonis seed --files InitialSeeder.js --force"
 
 echo "Done. Listing all containers:"
 sudo docker ps -a
